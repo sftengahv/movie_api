@@ -3,13 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie API Document</title>
+    <title>Movie API Documentation</title>
 </head>
 <body>
-    <h1>
-        Movie Api
-    </h1>
-    <p> Movie Api offers Developers with movie information such as title, directos, genres, and release dates</p>
-    
+
+<h1>Movie API</h1>
+<p>Movie API offers developers information about movies, including title, director, genres, and release dates. It also provides endpoints for user registration, managing favorite movies, and updating user information.</p>
+
+<h2>Endpoint Summary</h2>
+<p>GET /movies — Returns a list of all movies</p>
+<p>GET /movies/:title — Returns details of a single movie by title</p>
+<p>GET /movies/genre/:genreName — Returns information about a genre</p>
+<p>GET /movies/director/:directorName — Returns information about a director</p>
+<p>POST /users — Registers a new user</p>
+<p>PUT /users/:username — Updates user information</p>
+<p>POST /users/:username/movies/:movieID — Adds a movie to user's favorites</p>
+<p>DELETE /users/:username/movies/:movieID — Removes a movie from user's favorites</p>
+<p>DELETE /users/:username — Deregisters a user</p>
+
+<h2>Detailed Endpoint Documentation</h2>
+
+<h3>GET /movies</h3>
+<p>Description: Returns a list of all movies.</p>
+<p>Request Body: None</p>
+<p>Response Example:</p>
+<p>[
+  { "title": "Inception", "description": "A dream thief enters people's subconscious.", "genre": { "name": "Sci-Fi", "description": "Science fiction" }, "director": { "name": "Christopher Nolan", "birth": 1970 }, "imageURL": "https://...", "featured": true }
+]</p>
+
+<h3>GET /movies/:title</h3>
+<p>Description: Returns data about a single movie by title.</p>
+<p>URL Parameters: :title</p>
+<p>Response Example:</p>
+<p>{ "title": "Inception", "description": "A dream thief enters people's subconscious.", "genre": { "name": "Sci-Fi" }, "director": { "name": "Christopher Nolan" }, "imageURL": "https://...", "featured": true }</p>
+
+<h3>GET /movies/genre/:genreName</h3>
+<p>Description: Returns information about a genre by name.</p>
+<p>URL Parameters: :genreName</p>
+<p>Response Example:</p>
+<p>{ "name": "Thriller", "description": "Suspenseful and exciting films." }</p>
+
+<h3>GET /movies/director/:directorName</h3>
+<p>Description: Returns information about a director.</p>
+<p>URL Parameters: :directorName</p>
+<p>Response Example:</p>
+<p>{ "name": "Christopher Nolan", "bio": "Known for non-linear storytelling and complex plots.", "birth": 1970, "death": null }</p>
+
+<h3>POST /users</h3>
+<p>Description: Registers a new user.</p>
+<p>Request Body Example:</p>
+<p>{ "username": "newuser", "password": "mypassword", "email": "user@example.com", "birthday": "1990-01-01" }</p>
+<p>Response Example:</p>
+<p>{ "message": "User successfully registered." }</p>
+
+<h3>PUT /users/:username</h3>
+<p>Description: Updates a user's information.</p>
+<p>URL Parameters: :username</p>
+<p>Request Body Example:</p>
+<p>{ "username": "updatedUser", "email": "updated@example.com" }</p>
+<p>Response Example:</p>
+<p>{ "message": "User information updated." }</p>
+
+<h3>POST /users/:username/movies/:movieID</h3>
+<p>Description: Adds a movie to user's favorites.</p>
+<p>URL Parameters: :username, :movieID</p>
+<p>Response Example:</p>
+<p>{ "message": "Movie added to favorites." }</p>
+
+<h3>DELETE /users/:username/movies/:movieID</h3>
+<p>Description: Removes a movie from user's favorites.</p>
+<p>URL Parameters: :username, :movieID</p>
+<p>Response Example:</p>
+<p>{ "message": "Movie removed from favorites." }</p>
+
+<h3>DELETE /users/:username</h3>
+<p>Description: Deregisters a user account.</p>
+<p>URL Parameters: :username</p>
+<p>Response Example:</p>
+<p>{ "message": "User account removed." }</p>
+
 </body>
 </html>
